@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Master</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced Online Calculator</h1>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="standard">Standard</button>
+            <button class="tab-btn" data-tab="scientific">Scientific</button>
+            <button class="tab-btn" data-tab="age">Age Calculator</button>
+        </div>
+        
+        <!-- Standard Calculator -->
+        <div class="calculator active" id="standard">
+            <div class="display">
+                <input type="text" id="result" readonly>
+            </div>
+            <div class="buttons">
+                <button class="btn operator" onclick="clearDisplay()">C</button>
+                <button class="btn operator" onclick="backspace()"><i class="fas fa-backspace"></i></button>
+                <button class="btn operator" onclick="appendToDisplay('%')">%</button>
+                <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+                
+                <button class="btn" onclick="appendToDisplay('7')">7</button>
+                <button class="btn" onclick="appendToDisplay('8')">8</button>
+                <button class="btn" onclick="appendToDisplay('9')">9</button>
+                <button class="btn operator" onclick="appendToDisplay('*')">×</button>
+                
+                <button class="btn" onclick="appendToDisplay('4')">4</button>
+                <button class="btn" onclick="appendToDisplay('5')">5</button>
+                <button class="btn" onclick="appendToDisplay('6')">6</button>
+                <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+                
+                <button class="btn" onclick="appendToDisplay('1')">1</button>
+                <button class="btn" onclick="appendToDisplay('2')">2</button>
+                <button class="btn" onclick="appendToDisplay('3')">3</button>
+                <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+                
+                <button class="btn" onclick="appendToDisplay('0')">0</button>
+                <button class="btn" onclick="appendToDisplay('.')">.</button>
+                <button class="btn equals" onclick="calculate()">=</button>
+            </div>
+        </div>
+        
+        <!-- Scientific Calculator -->
+        <div class="calculator" id="scientific">
+            <div class="display">
+                <input type="text" id="sci-result" readonly>
+            </div>
+            <div class="buttons">
+                <button class="btn operator" onclick="sciClearDisplay()">C</button>
+                <button class="btn operator" onclick="sciBackspace()"><i class="fas fa-backspace"></i></button>
+                <button class="btn operator" onclick="sciAppendToDisplay('%')">%</button>
+                <button class="btn operator" onclick="sciAppendToDisplay('/')">/</button>
+                
+                <button class="btn" onclick="scientificFunction('sin(')">sin</button>
+                <button class="btn" onclick="scientificFunction('cos(')">cos</button>
+                <button class="btn" onclick="scientificFunction('tan(')">tan</button>
+                <button class="btn operator" onclick="sciAppendToDisplay('*')">×</button>
+                
+                <button class="btn" onclick="scientificFunction('log(')">log</button>
+                <button class="btn" onclick="scientificFunction('ln(')">ln</button>
+                <button class="btn" onclick="scientificFunction('sqrt(')">√</button>
+                <button class="btn operator" onclick="sciAppendToDisplay('-')">-</button>
+                
+                <button class="btn" onclick="scientificFunction('Math.PI')">π</button>
+                <button class="btn" onclick="scientificFunction('Math.E')">e</button>
+                <button class="btn" onclick="sciAppendToDisplay('(')">(</button>
+                <button class="btn operator" onclick="sciAppendToDisplay('+')">+</button>
+                
+                <button class="btn" onclick="scientificFunction('factorial(')">n!</button>
+                <button class="btn" onclick="sciAppendToDisplay(')')">)</button>
+                <button class="btn" onclick="sciAppendToDisplay('.')">.</button>
+                <button class="btn equals" onclick="sciCalculate()">=</button>
+                
+                <button class="btn" onclick="sciAppendToDisplay('7')">7</button>
+                <button class="btn" onclick="sciAppendToDisplay('8')">8</button>
+                <button class="btn" onclick="sciAppendToDisplay('9')">9</button>
+                
+                <button class="btn" onclick="sciAppendToDisplay('4')">4</button>
+                <button class="btn" onclick="sciAppendToDisplay('5')">5</button>
+                <button class="btn" onclick="sciAppendToDisplay('6')">6</button>
+                
+                <button class="btn" onclick="sciAppendToDisplay('1')">1</button>
+                <button class="btn" onclick="sciAppendToDisplay('2')">2</button>
+                <button class="btn" onclick="sciAppendToDisplay('3')">3</button>
+                
+                <button class="btn zero" onclick="sciAppendToDisplay('0')">0</button>
+            </div>
+        </div>
+        
+        <!-- Age Calculator -->
+        <div class="calculator" id="age">
+            <div class="age-container">
+                <h2>Age Calculator</h2>
+                <div class="input-group">
+                    <label for="birthdate">Enter your birthdate:</label>
+                    <input type="date" id="birthdate">
+                </div>
+                <button class="btn age-btn" onclick="calculateAge()">Calculate Age</button>
+                <div class="age-result" id="age-result">
+                    <p>Your age will appear here</p>
+                </div>
+                <div class="age-facts hidden" id="age-facts">
+                    <h3>Interesting Facts:</h3>
+                    <p id="months-lived"></p>
+                    <p id="days-lived"></p>
+                    <p id="hours-lived"></p>
+                    <p id="next-birthday"></p>
+                    <p id="zodiac-sign"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
